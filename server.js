@@ -24,9 +24,9 @@ app.use(express.static(__dirname)); // Serve files from current directory
 // Server Start (Moved to top for Railway)
 // ============================================
 
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📊 API endpoints available at http://localhost:${PORT}/api`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
+    console.log(`📊 API endpoints available at http://0.0.0.0:${PORT}/api`);
 });
 
 // ============================================
