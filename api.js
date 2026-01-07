@@ -3,12 +3,15 @@
 // ============================================
 
 // Auto-detect API URL
-const currentHost = window.location.hostname || 'localhost';
-let API_BASE_URL = `http://${currentHost}:3001/api`;
+let API_BASE_URL;
 
-// Force localhost if running from file system
-if (window.location.protocol === 'file:') {
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    // Development Mode
     API_BASE_URL = 'http://localhost:3001/api';
+} else {
+    // Production Mode (Railway, Vercel, etc.)
+    // Use relative path so it works on any domain/port
+    API_BASE_URL = '/api';
 }
 
 console.log('🔗 API Base URL:', API_BASE_URL);
