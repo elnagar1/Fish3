@@ -1,20 +1,17 @@
 version: '3.8'
 
 services:
-  fish-farm-app:
+  app:
     build: .
-    container_name: fish-farm-consultant
     ports:
-      - "3000:3000"  # Frontend
-      - "3001:3001"  # Backend API
-    volumes:
-      - ./database.sqlite:/app/database.sqlite
-    restart: unless-stopped
+      - "8080:8080"
     environment:
+      - PORT=8080
       - NODE_ENV=production
-    networks:
-      - fish-farm-network
-
-networks:
-  fish-farm-network:
-    driver: bridge
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "node", "-e", "require('http').get('http://localhost:8080/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})" ]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s

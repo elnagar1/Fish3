@@ -7,7 +7,7 @@ let API_BASE_URL;
 
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     // Development Mode
-    API_BASE_URL = 'http://localhost:3000/api';
+    API_BASE_URL = 'http://localhost:8080/api';
 } else {
     // Production Mode (Railway, Vercel, etc.)
     // Use relative path so it works on any domain/port
