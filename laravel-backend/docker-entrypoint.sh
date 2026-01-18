@@ -68,6 +68,11 @@ if [ "$IS_NEW_DB" = true ]; then
     php artisan db:seed --force
 fi
 
+# Configure Apache to listen on dynamic PORT
+echo "Configuring Apache to listen on port ${PORT:-8080}..."
+sed -i "s/Listen 80/Listen ${PORT:-8080}/g" /etc/apache2/ports.conf
+sed -i "s/<VirtualHost \*:80>/<VirtualHost *:${PORT:-8080}>/g" /etc/apache2/sites-available/000-default.conf
+
 # Start Apache
 echo "Starting Apache..."
 exec apache2-foreground

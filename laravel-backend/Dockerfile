@@ -56,8 +56,9 @@ RUN echo '<Directory /var/www/html/public>\n\
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-# Expose port
-EXPOSE 80
+# Expose dynamic port (Vercel provides $PORT)
+ENV PORT=${PORT:-8080}
+EXPOSE $PORT
 
 # Use custom entrypoint
 ENTRYPOINT ["docker-entrypoint.sh"]
