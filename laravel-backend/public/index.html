@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>مستشار مزارع الأسماك 🐟 - استشارات ذكية للاستزراع السمكي</title>
+    <meta name="title" content="مستشار مزارع الأسماك - استشارات ذكية للاستزراع السمكي">
+    <meta name="description"
+        content="احصل على استشارات متخصصة لمزرعتك السمكية باستخدام الذكاء الاصطناعي. نصائح عملية في جودة المياه، التغذية، الأمراض، وتحسين الإنتاجية.">
+    <meta name="keywords"
+        content="مزارع سمك, استزراع سمكي, استشارات مزارع أسماك, تربية أسماك, جودة المياه, أعلاف أسماك, أمراض أسماك, ذكاء اصطناعي, مزارع مائية">
+    <meta name="author" content="مستشار مزارع الأسماك">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Arabic">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" content="مستشار مزارع الأسماك - استشارات ذكية للاستزراع السمكي">
+    <meta property="og:description"
+        content="احصل على استشارات متخصصة لمزرعتك السمكية باستخدام الذكاء الاصطناعي. نصائح عملية وحلول فعّالة.">
+    <meta property="og:image" content="https://yourwebsite.com/og-image.jpg">
+    <meta property="og:site_name" content="مستشار مزارع الأسماك">
+    <meta property="og:locale" content="ar_EG">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/">
+    <meta property="twitter:title" content="مستشار مزارع الأسماك - استشارات ذكية للاستزراع السمكي">
+    <meta property="twitter:description" content="احصل على استشارات متخصصة لمزرعتك السمكية باستخدام الذكاء الاصطناعي.">
+    <meta property="twitter:image" content="https://yourwebsite.com/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourwebsite.com/">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1e88e5">
+    <meta name="msapplication-TileColor" content="#1e88e5">
+    <meta name="description" content="مستشار مزارع الأسماك - استشارات ذكية مدعومة بالذكاء الاصطناعي">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg" id="favicon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Main Content -->
+    <!-- Animated Background -->
+    <div class="ocean-bg">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="fish-container">
+            <div class="fish fish1">🐟</div>
+            <div class="fish fish2">🐠</div>
+            <div class="fish fish3">🐡</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.jpg" alt="Samak Tech Logo" class="logo-image">
+                <span class="logo-text dynamic-text" id="siteLogoText">مستشار مزارع الأسماك</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active" id="navHomeLink">الرئيسية</a>
+                <a href="articles.html" class="nav-link" id="navArticlesLink">المقالات</a>
+                <a href="tools.html" class="nav-link" id="navToolsLink">الأدوات</a>
+                <a href="index.html#about" class="nav-link" id="navAboutLink">من نحن</a>
+                <a href="index.html#consult" class="nav-link" id="navConsultLink">استشارة</a>
+                <button class="nav-link lang-btn" id="langToggle" onclick="toggleLanguage()">
+                    <i class="fas fa-globe" id="langIcon"></i> <span id="langText">English</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text hero-text-content">
+                        <h2 class="hero-title">
+                            <span class="gradient-text" id="heroMainTitle"></span>
+                            <br><span id="heroSubTitle"></span>
+                        </h2>
+                        <p class="hero-description" id="heroDescription">
+                        </p>
+                        <a href="#consult" class="cta-button">
+                            <i class="fas fa-play-circle"></i>
+                            <span id="heroButtonText"></span>
+                        </a>
+                    </div>
+                    <div class="hero-image">
+                        <div class="fish-tank">
+                            <div class="tank-glass"></div>
+                            <div class="tank-water"></div>
+                            <div class="tank-fish">🐠</div>
+                            <div class="tank-fish delay1">🐟</div>
+                            <div class="tank-fish delay2">🐡</div>
+                            <div class="tank-bubbles"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 id="featureWaterTitle">جودة المياه</h3>
+                        <p id="featureWaterDesc">نصائح لتحسين جودة المياه والحفاظ على بيئة صحية للأسماك</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3 id="featureFishTitle">صحة الأسماك</h3>
+                        <p id="featureFishDesc">تشخيص الأمراض وتقديم حلول علاجية فعالة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 id="featureFeedTitle">التغذية السليمة</h3>
+                        <p id="featureFeedDesc">برامج تغذية متكاملة لأنواع الأسماك المختلفة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 id="featureProductivityTitle">تحسين الإنتاجية</h3>
+                        <p id="featureProductivityDesc">استراتيجيات لزيادة الإنتاج وتحقيق أفضل عائد</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="articles-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge" id="sectionArticlesBadge"><i class="fas fa-book-open"></i> المقالات
+                        والنصائح</span>
+                    <h2 class="section-title" id="sectionArticlesTitle">دليلك للاستزراع السمكي الناجح</h2>
+                    <p class="section-subtitle" id="sectionArticlesSubtitle">نصائح وخبرات عملية مستوحاة من البيئة
+                        المصرية</p>
+                </div>
+
+                <div class="articles-grid" id="articlesGrid">
+                    <!-- Articles will be loaded here dynamically -->
+                </div>
+
+                <div class="load-more-container">
+                    <a href="articles.html" id="loadMoreArticles" class="btn btn-secondary">
+                        <i class="fas fa-plus"></i> عرض المزيد من المقالات
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge" id="sectionToolsBadge"><i class="fas fa-calculator"></i> أدوات
+                        المزرعة</span>
+                    <h2 class="section-title" id="sectionToolsTitle">أدوات حسابية متخصصة</h2>
+                    <p class="section-subtitle" id="sectionToolsSubtitle">أدوات تساعدك في إدارة مزرعتك بكفاءة واحترافية
+                    </p>
+                </div>
+
+                <div class="tools-preview-grid">
+                    <a href="tools.html" class="tool-preview-card featured">
+                        <div class="tool-preview-icon">🌾</div>
+                        <div class="tool-preview-content">
+                            <h3 id="toolFeedTitle">حاسبة العلف والأمونيا</h3>
+                            <p id="toolFeedDesc">احسب كمية العلف المطلوبة يومياً ومستوى الأمونيا المتوقع في الحوض</p>
+                            <span class="tool-preview-badge" id="toolAvailableNow">متاح الآن</span>
+                        </div>
+                        <div class="tool-preview-arrow">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </a>
+
+                    <a href="tools.html" class="tool-preview-card">
+                        <div class="tool-preview-icon">💧</div>
+                        <div class="tool-preview-content">
+                            <h3 id="toolWaterTitle">حاسبة جودة المياه</h3>
+                            <p id="toolWaterDesc">تحليل شامل لمعايير جودة المياه وتوصيات للتحسين</p>
+                            <span class="tool-preview-badge coming" id="toolComingSoon">قريباً</span>
+                        </div>
+                        <div class="tool-preview-arrow">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </a>
+
+                    <a href="tools.html" class="tool-preview-card">
+                        <div class="tool-preview-icon">📊</div>
+                        <div class="tool-preview-content">
+                            <h3 id="toolEcoTitle">حاسبة الجدوى الاقتصادية</h3>
+                            <p id="toolEcoDesc">احسب تكاليف مشروعك والعائد المتوقع</p>
+                            <span class="tool-preview-badge coming" id="toolComingSoon2">قريباً</span>
+                        </div>
+                        <div class="tool-preview-arrow">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="tools-cta">
+                    <a href="/tools" class="btn btn-primary btn-lg" id="exploreToolsBtn">
+                        <i class="fas fa-calculator"></i>
+                        استكشف جميع الأدوات
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Section -->
+        <section id="consult" class="consult-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge" id="sectionConsultBadge"><i class="fas fa-comments"></i> استشارة
+                        جديدة</span>
+                    <h2 class="section-title" id="sectionConsultTitle">أجب على الأسئلة التالية</h2>
+                    <p class="section-subtitle" id="sectionConsultSubtitle">أجب على هذه الأسئلة لنتمكن من تقديم استشارة
+                        مخصصة لك</p>
+                </div>
+
+                <!-- Consultation Form -->
+                <div class="consult-container">
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-steps">
+                            <div class="step active" data-step="1">1</div>
+                            <div class="step" data-step="2">2</div>
+                            <div class="step" data-step="3">3</div>
+                            <div class="step" data-step="4">4</div>
+                            <div class="step" data-step="5">5</div>
+                        </div>
+                    </div>
+
+                    <!-- Question Cards -->
+                    <div class="questions-wrapper">
+                        <!-- Questions will be loaded dynamically -->
+                        <div class="loading-questions" style="text-align: center; padding: 2rem;">
+                            <i class="fas fa-spinner fa-spin fa-2x"></i>
+                            <p>جاري تحميل الأسئلة...</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="nav-buttons">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" disabled>
+                            <i class="fas fa-arrow-right"></i>
+                            السابق
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">
+                            التالي
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-success" id="submitBtn" style="display: none;">
+                            <i class="fas fa-paper-plane"></i>
+                            احصل على الاستشارة
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Result Section -->
+                <div class="result-container" id="resultContainer" style="display: none;">
+                    <div class="result-header">
+                        <div class="result-icon">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐟%3C/text%3E%3C/svg%3E"
+                                alt="Fish">
+                        </div>
+                        <h3>نتيجة الاستشارة</h3>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loadingState">
+                        <div class="loader">
+                            <div class="fish-loader">🐟</div>
+                            <div class="wave-loader"></div>
+                        </div>
+                        <p>جاري تحليل بياناتك وإعداد الاستشارة...</p>
+                    </div>
+
+                    <!-- Consultation Result -->
+                    <div class="consultation-result" id="consultationResult" style="display: none;">
+                        <div class="result-content" id="resultContent">
+                            <!-- AI Response will be inserted here -->
+                        </div>
+                        <div class="result-actions">
+                            <button class="btn btn-primary" id="newConsultBtn">
+                                <i class="fas fa-redo"></i>
+                                استشارة جديدة
+                            </button>
+                            <button class="btn btn-secondary" id="printBtn">
+                                <i class="fas fa-print"></i>
+                                طباعة
+                            </button>
+                            <button class="btn btn-secondary" id="copyBtn">
+                                <i class="fas fa-copy"></i>
+                                نسخ
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Error State -->
+                    <div class="error-state" id="errorState" style="display: none;">
+                        <div class="error-icon">⚠️</div>
+                        <h4>حدث خطأ</h4>
+                        <p id="errorMessage">لم نتمكن من الاتصال بالخادم. يرجى التحقق من إعدادات API.</p>
+                        <button class="btn btn-primary" id="retryBtn">
+                            <i class="fas fa-redo"></i>
+                            إعادة المحاولة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge" id="sectionAboutBadge"><i class="fas fa-users"></i> من نحن</span>
+                    <h2 class="section-title" id="sectionAboutTitle"></h2>
+                    <p class="section-subtitle" id="sectionAboutSubtitle"></p>
+                </div>
+
+                <div class="team-grid" id="teamGrid">
+                    <!-- Team members will be loaded here dynamically -->
+                    <div class="loading-team" style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-spinner fa-spin fa-2x"></i>
+                        <p>جاري تحميل الفريق...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Article Modal -->
+    <div class="modal" id="articleModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3><i class="fas fa-book-open"></i> قراءة المقال</h3>
+                <button class="modal-close" id="closeArticleModal">&times;</button>
+            </div>
+            <div class="modal-body" id="articleModalBody">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal Removed -->
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon"></div>
+        <div class="toast-message"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>🐟</span>
+                    <p id="footerRightsText"></p>
+                </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="lang.js?v=7.0"></script>
+    <script src="config.js?v=4.0"></script>
+    <script src="api.js?v=4.0"></script>
+    <script src="navbar.js?v=4.0"></script>
+    <script src="app.js?v=6.1"></script>
+</body>
+
+</html>

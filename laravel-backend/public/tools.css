@@ -1,0 +1,990 @@
+/* ============================================
+   Fish Farm Tools - Modern Aquaculture Design
+   ============================================ */
+
+:root {
+    /* Ocean-inspired color palette */
+    --ocean-deep: #0a2540;
+    --ocean-mid: #1a4a6e;
+    --ocean-light: #2d7d9a;
+    --aqua-bright: #00b4d8;
+    --aqua-glow: #48cae4;
+    --seafoam: #90e0ef;
+    --sand: #f4e8d3;
+    --coral: #ff6b6b;
+    --seaweed: #2ecc71;
+
+    /* UI Colors */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 50%, var(--ocean-light) 100%);
+    --gradient-aqua: linear-gradient(135deg, var(--aqua-bright) 0%, var(--aqua-glow) 100%);
+    --gradient-card: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+.navbar {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--aqua-bright);
+}
+
+/* ============================================
+   Tools Hero Section
+   ============================================ */
+
+.tools-hero {
+    background: var(--gradient-ocean);
+    padding: 120px 20px 60px;
+    /* Adjusted padding */
+    position: relative;
+    overflow: hidden;
+}
+
+.tools-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+}
+
+.tools-hero .hero-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tools-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tools-hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+.hero-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+}
+
+.hero-waves svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================
+   Tools Grid
+   ============================================ */
+
+.tools-grid-section {
+    padding: 30px 20px 60px;
+    background: var(--bg-primary);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tool-card {
+    background: var(--gradient-card);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-aqua);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover::before {
+    transform: scaleX(1);
+}
+
+.tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 180, 216, 0.2);
+}
+
+.tool-card.featured {
+    border: 2px solid var(--aqua-bright);
+    background: linear-gradient(145deg, #ffffff 0%, #e0f7fa 100%);
+}
+
+.tool-card.coming-soon {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.tool-card.coming-soon:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.tool-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.tool-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.tool-badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 16px;
+    background: var(--gradient-aqua);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tool-badge.soon {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+}
+
+/* ============================================
+   Calculator Modal
+   ============================================ */
+
+.tool-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tool-modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 37, 64, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: 24px;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    /* Stop main container scrolling */
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    animation: modalSlide 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ... (animation and close button styles remain same) ... */
+
+@keyframes modalSlide {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: var(--ocean-deep);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-close:hover {
+    background: var(--coral);
+    transform: rotate(90deg);
+}
+
+/* ============================================
+   Calculator Layout
+   ============================================ */
+
+.calculator-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    /* min-height removed to allow flex grow/shrink properly */
+    flex: 1;
+    overflow-y: auto;
+    /* Enable scroll here */
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: var(--ocean-mid) #f1f5f9;
+}
+
+/* Custom Scrollbar for Chrome/cSafari/Edge */
+.calculator-layout::-webkit-scrollbar {
+    width: 8px;
+}
+
+.calculator-layout::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.calculator-layout::-webkit-scrollbar-thumb {
+    background-color: var(--ocean-mid);
+    border-radius: 4px;
+    border: 2px solid #f1f5f9;
+}
+
+@media (max-width: 900px) {
+    .calculator-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Input Section */
+.calc-inputs {
+    padding: 40px;
+    background: white;
+}
+
+@media (max-width: 900px) {
+    .calc-inputs {
+        border-radius: 24px 24px 0 0;
+    }
+}
+
+.calc-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.calc-header p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: var(--bg-primary);
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--aqua-bright);
+    box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.input-with-unit {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 10px;
+}
+
+.input-hint {
+    display: block;
+    margin-top: 6px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Buttons */
+.calc-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-calculate {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 30px;
+    background: var(--gradient-ocean);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-calculate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(10, 37, 64, 0.3);
+}
+
+.btn-calculate .btn-icon {
+    font-size: 1.3rem;
+}
+
+.btn-clear {
+    padding: 16px 25px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-clear:hover {
+    border-color: var(--coral);
+    color: var(--coral);
+}
+
+/* Temperature Slider */
+.temp-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.temp-slider-container input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: linear-gradient(90deg, #3b82f6 0%, #22c55e 50%, #ef4444 100%);
+    border-radius: 4px;
+    outline: none;
+}
+
+.temp-slider-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 3px solid var(--aqua-bright);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.temp-slider-container input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    border-color: var(--ocean-deep);
+}
+
+.temp-display {
+    min-width: 60px;
+    padding: 8px 12px;
+    background: var(--gradient-ocean);
+    color: white;
+    border-radius: 8px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Recommendations */
+.recommendations {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.recommendations h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--aqua-glow);
+}
+
+.recommendations ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendations li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.recommendations li:last-child {
+    border-bottom: none;
+}
+
+.recommendations li strong {
+    color: var(--seaweed);
+}
+
+/* Weight Prompt */
+.weight-prompt {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid #f59e0b;
+}
+
+.weight-prompt.hidden {
+    display: none;
+}
+
+.prompt-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.weight-prompt p {
+    color: #92400e;
+    font-weight: 600;
+}
+
+
+/* Results Section */
+.calc-results {
+    background: var(--gradient-ocean);
+    padding: 40px 30px;
+    border-radius: 0 24px 24px 0;
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .calc-results {
+        border-radius: 0 0 24px 24px;
+    }
+}
+
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.results-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.results-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(46, 204, 113, 0.2);
+    border: 1px solid var(--seaweed);
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.results-badge .badge-icon {
+    color: var(--seaweed);
+}
+
+.results-note {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.result-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.result-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-5px);
+}
+
+.result-item.highlight {
+    background: rgba(0, 180, 216, 0.3);
+    border-color: var(--aqua-glow);
+}
+
+.result-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.result-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--aqua-glow);
+}
+
+.formula-note {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.formula-note strong {
+    color: var(--aqua-glow);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+    background: var(--ocean-deep);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.calculating .result-value {
+    animation: pulse 1s infinite;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+    .tools-hero h1 {
+        font-size: 2rem;
+    }
+
+    .tools-hero p {
+        font-size: 1rem;
+    }
+
+    .calc-inputs,
+    .calc-results {
+        padding: 25px;
+    }
+
+    .calc-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .result-value {
+        font-size: 1.4rem;
+    }
+}
+
+/* ============================================
+   Scientific Basis Section
+   ============================================ */
+
+.scientific-basis {
+    flex-shrink: 0;
+    background: #f1f5f9;
+    border-top: 1px solid var(--border-color);
+    border-radius: 0 0 24px 24px;
+}
+
+.science-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border: none;
+    border-radius: 0 0 24px 24px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--ocean-mid);
+    transition: all 0.3s ease;
+}
+
+.science-toggle:hover {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    color: var(--ocean-deep);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+}
+
+.toggle-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.science-toggle.active .toggle-arrow {
+    transform: rotate(180deg);
+}
+
+.science-toggle.active {
+    border-radius: 0;
+}
+
+.science-content {
+    display: none;
+    padding: 15px;
+    background: white;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 0 0 24px 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.science-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.science-section {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.science-section:last-child {
+    margin-bottom: 0;
+}
+
+.science-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ocean-deep);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--aqua-bright);
+}
+
+.science-section h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ocean-mid);
+    margin: 12px 0 8px;
+}
+
+.science-section p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+}
+
+.science-section p strong {
+    color: var(--ocean-deep);
+}
+
+/* Science Tables */
+.science-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.science-table th,
+.science-table td {
+    padding: 8px 10px;
+    text-align: right;
+    border: 1px solid var(--border-color);
+}
+
+.science-table th {
+    background: var(--gradient-ocean);
+    color: white;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.science-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.science-table tbody tr:hover {
+    background: #f1f5f9;
+}
+
+.science-table tbody tr.safe {
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.science-table tbody tr.warning {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.science-table tbody tr.danger {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Formula Box */
+.formula-box {
+    background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.formula {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.formula-step {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    direction: ltr;
+}
+
+.formula-explain {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* References */
+.science-section.references ul {
+    list-style: none;
+    padding: 0;
+}
+
+.science-section.references li {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    border-right: 4px solid var(--aqua-bright);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    direction: ltr;
+    text-align: left;
+}
+
+.science-section.references li:hover {
+    background: #e2e8f0;
+}
+
+/* Responsive for Scientific Section */
+@media (max-width: 768px) {
+    .science-content {
+        padding: 20px;
+    }
+
+    .science-section {
+        padding: 20px;
+    }
+
+    .formula-step {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .science-table th,
+    .science-table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
+/* New Tool Badges */
+.tool-badge.new { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+.tool-badge.advanced { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }

@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدوات المزرعة - مستشار مزارع الأسماك</title>
+    <meta name="description" content="أدوات حسابية متخصصة لمزارع الأسماك - حساب العلف، الأمونيا، وأكثر">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg" id="favicon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tools.css">
+    <!-- Final Theme For New Tools -->
+    <link rel="stylesheet" href="tools-final-theme.css">
+</head>
+
+<body>
+    <!-- Main Content -->
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="images/logo.jpg" alt="Samak Tech Logo" class="logo-image">
+                <span class="logo-text dynamic-text" id="siteLogoText">مستشار مزارع الأسماك</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link" id="navHomeLink">الرئيسية</a>
+                <a href="articles.html" class="nav-link" id="navArticlesLink">المقالات</a>
+                <a href="tools.html" class="nav-link active" id="navToolsLink">الأدوات</a>
+                <a href="index.html#about" class="nav-link" id="navAboutLink">من نحن</a>
+                <a href="index.html#consult" class="nav-link" id="navConsultLink">استشارة</a>
+                <button id="langToggle" class="lang-btn">
+                    <span id="langText">English</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="tools-hero">
+        <div class="hero-content">
+            <h1 id="toolsPageTitle">🧮 أدوات المزرعة</h1>
+            <p id="toolsPageSubtitle">أدوات حسابية متخصصة تساعدك في إدارة مزرعتك بكفاءة</p>
+        </div>
+        <div class="hero-waves">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,60 1440,60 L1440,120 L0,120 Z"
+                    fill="var(--bg-primary)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section class="tools-grid-section">
+        <div class="container">
+            <div class="tools-grid">
+                <!-- Feed Calculator Card -->
+                <div class="tool-card featured" data-tool-id="feed-calculator" onclick="openTool('feed-calculator')"
+                    style="display: none;">
+                    <div class="tool-icon">🌾</div>
+                    <h3 id="toolFeedTitle">حاسبة العلف والأمونيا</h3>
+                    <p id="toolFeedDesc">احسب كمية العلف المطلوبة ومستوى الأمونيا المتوقع</p>
+                    <span class="tool-badge" id="badgeFeatured">الأكثر استخداماً</span>
+                </div>
+
+                <!-- Water Quality Calculator -->
+                <div class="tool-card" data-tool-id="water-quality" onclick="openTool('water-quality')"
+                    style="display: none;">
+                    <div class="tool-icon">💧</div>
+                    <h3 id="toolWaterTitle">حاسبة جودة المياه</h3>
+                    <p id="toolWaterDesc">تحليل شامل لجودة المياه وتقييم الحالة</p>
+                    <span class="tool-badge" id="badgeNew">جديد</span>
+                </div>
+
+                <!-- Fish Density Calculator -->
+                <div class="tool-card" data-tool-id="fish-density" onclick="openTool('fish-density')"
+                    style="display: none;">
+                    <div class="tool-icon">🐠</div>
+                    <h3 id="toolDensityTitle">حاسبة الكثافة السمكية</h3>
+                    <p id="toolDensityDesc">حدد العدد الأمثل للأسماك في حوضك</p>
+                    <span class="tool-badge">جديد</span>
+                </div>
+
+
+                <!-- Profit Calculator - NEW -->
+                <div class="tool-card featured" data-tool-id="profit-calculator" onclick="openTool('profit-calculator')"
+                    style="display: none;">
+                    <div class="tool-icon">💰</div>
+                    <h3 id="toolProfitTitle">حاسبة الربح والخسارة</h3>
+                    <p id="toolProfitDesc">احسب التكاليف والأرباح المتوقعة لدورة الإنتاج</p>
+                    <span class="tool-badge new">جديد</span>
+                </div>
+
+                <!-- FCR Calculator - NEW -->
+                <div class="tool-card" data-tool-id="fcr-calculator" onclick="openTool('fcr-calculator')"
+                    style="display: none;">
+                    <div class="tool-icon">📊</div>
+                    <h3 id="toolFCRTitle">حاسبة FCR</h3>
+                    <p id="toolFCRDesc">قيّم كفاءة العلف ومعدل التحويل</p>
+                    <span class="tool-badge new">جديد</span>
+                </div>
+
+                <!-- Biofloc Calculator - NEW -->
+                <div class="tool-card" data-tool-id="biofloc-calculator" onclick="openTool('biofloc-calculator')"
+                    style="display: none;">
+                    <div class="tool-icon">🦠</div>
+                    <h3 id="toolBioflocTitle">حاسبة البايوفلوك</h3>
+                    <p id="toolBioflocDesc">احسب نسبة C:N وكمية السكر المطلوبة</p>
+                    <span class="tool-badge advanced" id="badgeAdvanced">متقدم</span>
+                </div>
+
+                <!-- Feeding Schedule - NEW -->
+                <div class="tool-card" data-tool-id="feeding-schedule" onclick="openTool('feeding-schedule')"
+                    style="display: none;">
+                    <div class="tool-icon">🐟</div>
+                    <h3 id="toolScheduleTitle">جدول التغذية التلقائي</h3>
+                    <p id="toolScheduleDesc">احصل على جدول تغذية مخصص لمزرعتك</p>
+                    <span class="tool-badge new">جديد</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feed Calculator Modal -->
+    <div id="feed-calculator-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <!-- Input Section -->
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>🌾 حساب كمية العلف والأمونيا</h2>
+                        <p>أدخل البيانات للحصول على توصية دقيقة بناءً على معايير FAO العلمية</p>
+                    </div>
+
+                    <!-- Fish Species Selection -->
+                    <div class="input-group">
+                        <label for="fishSpecies">نوع السمك</label>
+                        <select id="fishSpecies" onchange="updateFeedSettings()">
+                            <option value="tilapia">بلطي (Tilapia)</option>
+                            <option value="catfish">قرموط / سلور (Catfish)</option>
+                            <option value="carp">مبروك (Carp)</option>
+                            <option value="seabass">قاروص (Sea Bass)</option>
+                            <option value="mullet">بوري (Mullet)</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+
+                    <!-- Growth Stage -->
+                    <div class="input-group">
+                        <label for="growthStage">مرحلة النمو</label>
+                        <select id="growthStage" onchange="updateFeedRate()">
+                            <option value="fry">زريعة - Fry (أقل من 1 جرام)</option>
+                            <option value="fry2">زريعة متقدمة (1-5 جرام)</option>
+                            <option value="fingerling">إصبعيات - Fingerling (5-50 جرام)</option>
+                            <option value="juvenile" selected>أحداث - Juvenile (50-200 جرام)</option>
+                            <option value="growout">تسمين - Grow-out (200-500 جرام)</option>
+                            <option value="market">تسويقي (أكثر من 500 جرام)</option>
+                            <option value="broodstock">أمهات - Broodstock</option>
+                        </select>
+                        <small class="input-hint" id="feedRateHint">معدل التغذية: 3% من وزن الجسم</small>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="fishCount">عدد الأسماك</label>
+                            <input type="number" id="fishCount" placeholder="مثال: 1000" min="1">
+                        </div>
+                        <div class="input-group">
+                            <label for="avgWeight">متوسط وزن السمكة (جرام)</label>
+                            <input type="number" id="avgWeight" placeholder="مثال: 200" min="1"
+                                onchange="suggestGrowthStage()">
+                        </div>
+                    </div>
+
+                    <!-- Water Temperature -->
+                    <div class="input-group">
+                        <label for="waterTemp">درجة حرارة المياه (°C)</label>
+                        <div class="temp-slider-container">
+                            <input type="range" id="waterTemp" min="15" max="35" value="28"
+                                oninput="updateTempDisplay()">
+                            <span id="tempDisplay" class="temp-display">28°C</span>
+                        </div>
+                        <small class="input-hint" id="tempHint">✅ درجة حرارة مثالية للتغذية</small>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="proteinPercent">نسبة البروتين في العلف (%)</label>
+                            <input type="number" id="proteinPercent" placeholder="مثال: 32" min="20" max="55"
+                                value="32">
+                            <small class="input-hint" id="proteinHint">موصى به: 30-35% لهذه المرحلة</small>
+                        </div>
+                        <div class="input-group">
+                            <label for="feedUnit">وحدة عرض النتائج</label>
+                            <select id="feedUnit">
+                                <option value="kg" selected>كيلوجرام (kg)</option>
+                                <option value="g">جرام (g)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Pond Volume for Ammonia -->
+                    <div class="input-group">
+                        <label for="pondVolume">حجم الحوض (اختياري - لحساب تركيز الأمونيا)</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="pondVolume" placeholder="مثال: 1000" min="1">
+                            <select id="volumeUnit">
+                                <option value="L" selected>لتر (L)</option>
+                                <option value="m3">متر مكعب (m³)</option>
+                            </select>
+                        </div>
+                        <small class="input-hint">لو تركتها فارغة، هيتم حساب الأمونيا الكلية فقط</small>
+                    </div>
+
+                    <div class="calc-actions">
+                        <button class="btn-calculate" onclick="calculateFeed()">
+                            <span>احسب</span>
+                            <span class="btn-icon">🧮</span>
+                        </button>
+                        <button class="btn-clear" onclick="clearForm()">مسح القيم</button>
+                    </div>
+
+                    <div id="weight-prompt" class="weight-prompt hidden">
+                        <div class="prompt-icon">⚖️</div>
+                        <p>أدخل متوسط وزن سمكة صالح (بالجرام)</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="calc-results">
+                    <div class="results-header">
+                        <h3>النتائج</h3>
+                        <div class="results-badge">
+                            <span class="badge-icon">✓</span>
+                            <span>آمن</span>
+                        </div>
+                    </div>
+                    <p class="results-note">النتائج بناءً على معايير FAO و Boyd (2014)</p>
+
+                    <div class="result-item">
+                        <div class="result-label">📊 الكتلة الحيوية الكلية</div>
+                        <div class="result-value" id="totalBiomass">—</div>
+                    </div>
+
+                    <div class="result-item featured-result">
+                        <div class="result-label">🌾 كمية العلف اليومية الموصى بها</div>
+                        <div class="result-value" id="feedAmount">—</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-label">🍗 إجمالي البروتين في العلف</div>
+                        <div class="result-value" id="totalProtein">—</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-label">⚗️ إجمالي النيتروجين (N)</div>
+                        <div class="result-value" id="totalNitrogen">—</div>
+                    </div>
+
+                    <div class="result-item highlight">
+                        <div class="result-label">⚠️ الأمونيا المتوقعة (TAN)</div>
+                        <div class="result-value" id="totalAmmonia">—</div>
+                    </div>
+
+                    <!-- Feeding Recommendations -->
+                    <div class="recommendations" id="recommendations">
+                        <h4>💡 توصيات التغذية</h4>
+                        <ul id="feedingTips">
+                            <li>قسّم العلف على 2-3 وجبات يومياً</li>
+                            <li>راقب استهلاك الأسماك وعدّل الكمية</li>
+                        </ul>
+                    </div>
+
+                    <div class="formula-note">
+                        <strong>المعادلات:</strong><br>
+                        العلف = الكتلة الحيوية × معدل التغذية<br>
+                        TAN = البروتين × 16% × 1.214
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scientific Basis Section -->
+            <div class="scientific-basis">
+                <button class="science-toggle" onclick="toggleScience()">
+                    <span class="toggle-icon">📚</span>
+                    <span>الأساس العلمي للحسابات</span>
+                    <span class="toggle-arrow">▼</span>
+                </button>
+
+                <div class="science-content" id="scienceContent">
+                    <div class="science-section">
+                        <h4>🐟 معدلات التغذية حسب نوع السمك ومرحلة النمو (FAO)</h4>
+                        <p>تختلف معدلات التغذية بناءً على نوع السمك وحجمه ودرجة حرارة المياه:</p>
+
+                        <h5>البلطي (Tilapia) - المصدر: FAO & Jamaica MOA</h5>
+                        <table class="science-table">
+                            <thead>
+                                <tr>
+                                    <th>المرحلة</th>
+                                    <th>الوزن</th>
+                                    <th>معدل التغذية</th>
+                                    <th>البروتين المطلوب</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>زريعة (أسبوع 1-2)</td>
+                                    <td>&lt;1g</td>
+                                    <td>10%</td>
+                                    <td>40-45%</td>
+                                </tr>
+                                <tr>
+                                    <td>زريعة (أسبوع 3-4)</td>
+                                    <td>1-5g</td>
+                                    <td>8%</td>
+                                    <td>35-40%</td>
+                                </tr>
+                                <tr>
+                                    <td>إصبعيات (أسبوع 5-10)</td>
+                                    <td>5-50g</td>
+                                    <td>5%</td>
+                                    <td>32-35%</td>
+                                </tr>
+                                <tr>
+                                    <td>أحداث (أسبوع 11-14)</td>
+                                    <td>50-150g</td>
+                                    <td>4%</td>
+                                    <td>28-32%</td>
+                                </tr>
+                                <tr>
+                                    <td>تسمين (أسبوع 15-20)</td>
+                                    <td>150-350g</td>
+                                    <td>3%</td>
+                                    <td>28-30%</td>
+                                </tr>
+                                <tr>
+                                    <td>تسويقي (أسبوع 21+)</td>
+                                    <td>&gt;350g</td>
+                                    <td>2%</td>
+                                    <td>25-28%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5>القرموط (Catfish) - المصدر: Famerlio & FAO</h5>
+                        <table class="science-table">
+                            <thead>
+                                <tr>
+                                    <th>المرحلة</th>
+                                    <th>العمر</th>
+                                    <th>معدل التغذية</th>
+                                    <th>البروتين المطلوب</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>زريعة</td>
+                                    <td>16-30 يوم</td>
+                                    <td>8%</td>
+                                    <td>45-50%</td>
+                                </tr>
+                                <tr>
+                                    <td>إصبعيات</td>
+                                    <td>31-90 يوم</td>
+                                    <td>5-6%</td>
+                                    <td>40-45%</td>
+                                </tr>
+                                <tr>
+                                    <td>أحداث</td>
+                                    <td>91-150 يوم</td>
+                                    <td>3-4%</td>
+                                    <td>35-40%</td>
+                                </tr>
+                                <tr>
+                                    <td>تسمين</td>
+                                    <td>151-330 يوم</td>
+                                    <td>2%</td>
+                                    <td>32-35%</td>
+                                </tr>
+                                <tr>
+                                    <td>أمهات</td>
+                                    <td>&gt;330 يوم</td>
+                                    <td>1.5%</td>
+                                    <td>30-35%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="science-section">
+                        <h4>🌡️ تأثير درجة الحرارة على معدل التغذية</h4>
+                        <p>درجة حرارة المياه تؤثر بشكل كبير على شهية الأسماك ومعدل الأيض:</p>
+                        <table class="science-table">
+                            <thead>
+                                <tr>
+                                    <th>درجة الحرارة</th>
+                                    <th>معامل التعديل</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="danger">
+                                    <td>&lt;18°C</td>
+                                    <td>×0.25</td>
+                                    <td>تغذية محدودة جداً</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>18-22°C</td>
+                                    <td>×0.5</td>
+                                    <td>تغذية منخفضة</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>22-25°C</td>
+                                    <td>×0.75</td>
+                                    <td>تغذية متوسطة</td>
+                                </tr>
+                                <tr class="safe">
+                                    <td>25-30°C</td>
+                                    <td>×1.0</td>
+                                    <td>تغذية مثالية ✅</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>30-32°C</td>
+                                    <td>×0.75</td>
+                                    <td>تغذية متوسطة</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>&gt;32°C</td>
+                                    <td>×0.25</td>
+                                    <td>تغذية محدودة (إجهاد حراري)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="science-section">
+                        <h4>🧪 تحويل البروتين إلى أمونيا</h4>
+                        <p>الأسماك تفرز الأمونيا كناتج أيضي للبروتين:</p>
+                        <div class="formula-box">
+                            <div class="formula">
+                                <span class="formula-step">النيتروجين (N) = البروتين × 0.16</span>
+                            </div>
+                            <div class="formula">
+                                <span class="formula-step">الأمونيا (NH₃) = النيتروجين × 1.214</span>
+                            </div>
+                            <div class="formula">
+                                <span class="formula-step">TAN اليومي = ~25-35% من نيتروجين العلف</span>
+                            </div>
+                        </div>
+                        <p class="formula-explain">
+                            TAN = Total Ammonia Nitrogen (الأمونيا الكلية).<br>
+                            ليس كل البروتين يتحول لأمونيا - جزء يُستخدم للنمو.
+                        </p>
+                    </div>
+
+                    <div class="science-section">
+                        <h4>⚠️ حدود الأمونيا الآمنة (Boyd, 2014)</h4>
+                        <table class="science-table">
+                            <thead>
+                                <tr>
+                                    <th>TAN (ملجم/لتر)</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراء المطلوب</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="safe">
+                                    <td>&lt; 0.02</td>
+                                    <td>✅ آمن</td>
+                                    <td>لا يوجد إجراء</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>0.02 - 0.05</td>
+                                    <td>⚠️ تحذير</td>
+                                    <td>زيادة التهوية، تقليل العلف</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>&gt; 0.05</td>
+                                    <td>🚨 خطر</td>
+                                    <td>تغيير مياه فوري، إيقاف التغذية</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="science-section references">
+                        <h4>📖 المراجع العلمية</h4>
+                        <ul>
+                            <li>FAO (2020). The State of World Fisheries and Aquaculture. Rome.</li>
+                            <li>Boyd, C.E. & Tucker, C.S. (2014). Handbook for Aquaculture Water Quality. Craftmaster
+                                Printers.</li>
+                            <li>Jamaica Ministry of Agriculture (2023). Tilapia Feeding Guidelines.</li>
+                            <li>Famerlio (2023). Catfish Feeding Rate by Growth Stage.</li>
+                            <li>Timmons, M.B. et al. (2018). Recirculating Aquaculture. 4th Edition. Ithaca Publishing.
+                            </li>
+                            <li>Pillay, T.V.R. & Kutty, M.N. (2005). Aquaculture: Principles and Practices. Blackwell
+                                Publishing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- Water Quality Calculator Modal -->
+    <!-- ============================================ -->
+    <div id="water-quality-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>💧 تحليل جودة المياه</h2>
+                        <p>أدخل قياسات المياه لتقييم حالة الحوض بناءً على معايير FAO</p>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="wqTemperature">درجة الحرارة (°C)</label>
+                            <input type="number" id="wqTemperature" placeholder="مثال: 28" min="0" max="45" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="wqPH">الرقم الهيدروجيني (pH)</label>
+                            <input type="number" id="wqPH" placeholder="مثال: 7.5" min="0" max="14" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="wqDO">الأكسجين الذائب (mg/L)</label>
+                            <input type="number" id="wqDO" placeholder="مثال: 6.0" min="0" max="20" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="wqAmmonia">الأمونيا TAN (mg/L)</label>
+                            <input type="number" id="wqAmmonia" placeholder="مثال: 0.02" min="0" max="10" step="0.001">
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="wqNitrite">النيتريت NO₂ (mg/L)</label>
+                            <input type="number" id="wqNitrite" placeholder="مثال: 0.1" min="0" max="10" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label for="wqNitrate">النيترات NO₃ (mg/L)</label>
+                            <input type="number" id="wqNitrate" placeholder="مثال: 20" min="0" max="200" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="wqSalinity">الملوحة (ppt) - اختياري</label>
+                        <input type="number" id="wqSalinity" placeholder="مثال: 0 للمياه العذبة" min="0" max="50"
+                            step="0.1">
+                    </div>
+
+                    <div class="calc-actions">
+                        <button class="btn-calculate" onclick="analyzeWaterQuality()">
+                            <span>تحليل</span>
+                            <span class="btn-icon">🔬</span>
+                        </button>
+                        <button class="btn-clear" onclick="clearWaterQualityForm()">مسح القيم</button>
+                    </div>
+                </div>
+
+                <div class="calc-results">
+                    <div class="results-header">
+                        <h3>تقييم الجودة</h3>
+                        <div class="results-badge" id="wqOverallBadge">
+                            <span class="badge-icon">—</span>
+                            <span>أدخل البيانات</span>
+                        </div>
+                    </div>
+                    <p class="results-note">التقييم بناءً على معايير FAO و Boyd (2014)</p>
+
+                    <div class="result-item" id="wqTempResult">
+                        <div class="result-label">🌡️ درجة الحرارة</div>
+                        <div class="result-value">—</div>
+                        <div class="result-status"></div>
+                    </div>
+
+                    <div class="result-item" id="wqPHResult">
+                        <div class="result-label">⚗️ الرقم الهيدروجيني</div>
+                        <div class="result-value">—</div>
+                        <div class="result-status"></div>
+                    </div>
+
+                    <div class="result-item" id="wqDOResult">
+                        <div class="result-label">💨 الأكسجين الذائب</div>
+                        <div class="result-value">—</div>
+                        <div class="result-status"></div>
+                    </div>
+
+                    <div class="result-item" id="wqAmmoniaResult">
+                        <div class="result-label">⚠️ الأمونيا</div>
+                        <div class="result-value">—</div>
+                        <div class="result-status"></div>
+                    </div>
+
+                    <div class="result-item" id="wqNitriteResult">
+                        <div class="result-label">🧪 النيتريت</div>
+                        <div class="result-value">—</div>
+                        <div class="result-status"></div>
+                    </div>
+
+                    <div class="result-item" id="wqNitrateResult">
+                        <div class="result-label">🧫 النيترات</div>
+                        <div class="result-value">—</div>
+                        <div class="result-status"></div>
+                    </div>
+
+                    <div class="recommendations" id="wqRecommendations">
+                        <h4>💡 التوصيات</h4>
+                        <ul id="wqTips">
+                            <li>أدخل قياسات المياه للحصول على توصيات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scientific Basis -->
+            <div class="scientific-basis">
+                <button class="science-toggle" onclick="toggleWQScience()">
+                    <span class="toggle-icon">📚</span>
+                    <span>الأساس العلمي - معايير جودة المياه</span>
+                    <span class="toggle-arrow">▼</span>
+                </button>
+                <div class="science-content" id="wqScienceContent">
+                    <div class="science-section">
+                        <h4>📊 المعايير المثالية لجودة المياه (FAO)</h4>
+                        <table class="science-table">
+                            <thead>
+                                <tr>
+                                    <th>المعيار</th>
+                                    <th>النطاق المثالي</th>
+                                    <th>مقبول</th>
+                                    <th>خطر</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>درجة الحرارة</td>
+                                    <td>25-30°C</td>
+                                    <td>22-32°C</td>
+                                    <td>&lt;18 أو &gt;35°C</td>
+                                </tr>
+                                <tr>
+                                    <td>pH</td>
+                                    <td>7.0-8.0</td>
+                                    <td>6.5-9.0</td>
+                                    <td>&lt;6 أو &gt;9.5</td>
+                                </tr>
+                                <tr>
+                                    <td>الأكسجين الذائب</td>
+                                    <td>&gt;5 mg/L</td>
+                                    <td>4-5 mg/L</td>
+                                    <td>&lt;3 mg/L</td>
+                                </tr>
+                                <tr>
+                                    <td>الأمونيا (TAN)</td>
+                                    <td>&lt;0.02 mg/L</td>
+                                    <td>0.02-0.05 mg/L</td>
+                                    <td>&gt;0.05 mg/L</td>
+                                </tr>
+                                <tr>
+                                    <td>النيتريت</td>
+                                    <td>&lt;0.1 mg/L</td>
+                                    <td>0.1-0.5 mg/L</td>
+                                    <td>&gt;0.5 mg/L</td>
+                                </tr>
+                                <tr>
+                                    <td>النيترات</td>
+                                    <td>&lt;50 mg/L</td>
+                                    <td>50-100 mg/L</td>
+                                    <td>&gt;100 mg/L</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- Fish Density Calculator Modal -->
+    <!-- ============================================ -->
+    <div id="fish-density-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>🐠 حاسبة الكثافة السمكية</h2>
+                        <p>حدد العدد الأمثل للأسماك بناءً على معايير FAO</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="fdSpecies">نوع السمك</label>
+                        <select id="fdSpecies" onchange="updateDensityDefaults()">
+                            <option value="tilapia">بلطي (Tilapia)</option>
+                            <option value="catfish">قرموط (Catfish)</option>
+                            <option value="carp">مبروك (Carp)</option>
+                            <option value="seabass">قاروص (Sea Bass)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="fdPondType">نوع الحوض</label>
+                        <select id="fdPondType" onchange="updateDensityDefaults()">
+                            <option value="earthen">حوض ترابي</option>
+                            <option value="concrete">حوض خرساني</option>
+                            <option value="tarpaulin">حوض مشمع</option>
+                            <option value="tank">تانك / حوض بلاستيك</option>
+                            <option value="ras">نظام RAS (إعادة تدوير)</option>
+                            <option value="cage">أقفاص عائمة</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="fdStage">مرحلة التربية</label>
+                        <select id="fdStage" onchange="updateDensityDefaults()">
+                            <option value="fry">حضانة (زريعة)</option>
+                            <option value="fingerling">تحضين (إصبعيات)</option>
+                            <option value="growout" selected>تسمين</option>
+                        </select>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="fdLength">طول الحوض (متر)</label>
+                            <input type="number" id="fdLength" placeholder="مثال: 10" min="0.1" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="fdWidth">عرض الحوض (متر)</label>
+                            <input type="number" id="fdWidth" placeholder="مثال: 5" min="0.1" step="0.1">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="fdDepth">عمق المياه (متر)</label>
+                        <input type="number" id="fdDepth" placeholder="مثال: 1.2" min="0.1" max="10" step="0.1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="fdTargetWeight">الوزن المستهدف للحصاد (جرام)</label>
+                        <input type="number" id="fdTargetWeight" placeholder="مثال: 500" min="10" value="500">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="fdAeration">مستوى التهوية</label>
+                        <select id="fdAeration">
+                            <option value="none">بدون تهوية</option>
+                            <option value="low">تهوية بسيطة</option>
+                            <option value="medium" selected>تهوية متوسطة</option>
+                            <option value="high">تهوية مكثفة</option>
+                        </select>
+                    </div>
+
+                    <div class="calc-actions">
+                        <button class="btn-calculate" onclick="calculateDensity()">
+                            <span>احسب الكثافة</span>
+                            <span class="btn-icon">🐟</span>
+                        </button>
+                        <button class="btn-clear" onclick="clearDensityForm()">مسح</button>
+                    </div>
+                </div>
+
+                <div class="calc-results">
+                    <div class="results-header">
+                        <h3>نتائج الكثافة</h3>
+                        <div class="results-badge" id="fdBadge">
+                            <span class="badge-icon">—</span>
+                            <span>أدخل البيانات</span>
+                        </div>
+                    </div>
+                    <p class="results-note">التوصيات بناءً على معايير FAO</p>
+
+                    <div class="result-item">
+                        <div class="result-label">📐 حجم الحوض</div>
+                        <div class="result-value" id="fdVolume">—</div>
+                    </div>
+
+                    <div class="result-item featured-result">
+                        <div class="result-label">🐠 عدد الأسماك الموصى به</div>
+                        <div class="result-value" id="fdFishCount">—</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-label">⚖️ الكثافة بالكيلوجرام</div>
+                        <div class="result-value" id="fdDensityKg">—</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-label">📏 الكثافة بالعدد</div>
+                        <div class="result-value" id="fdDensityNum">—</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-label">🎯 الإنتاج المتوقع</div>
+                        <div class="result-value" id="fdExpectedYield">—</div>
+                    </div>
+
+                    <div class="recommendations" id="fdRecommendations">
+                        <h4>💡 توصيات</h4>
+                        <ul id="fdTips">
+                            <li>أدخل أبعاد الحوض للحصول على توصيات</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scientific Basis -->
+            <div class="scientific-basis">
+                <button class="science-toggle" onclick="toggleFDScience()">
+                    <span class="toggle-icon">📚</span>
+                    <span>الأساس العلمي - الكثافات السمكية</span>
+                    <span class="toggle-arrow">▼</span>
+                </button>
+                <div class="science-content" id="fdScienceContent">
+                    <div class="science-section">
+                        <h4>🐟 الكثافات الموصى بها حسب FAO</h4>
+                        <table class="science-table">
+                            <thead>
+                                <tr>
+                                    <th>النوع</th>
+                                    <th>حوض ترابي</th>
+                                    <th>حوض خرساني</th>
+                                    <th>نظام RAS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>بلطي (تسمين)</td>
+                                    <td>10-50 سمكة/م³</td>
+                                    <td>50-100 سمكة/م³</td>
+                                    <td>100-200 سمكة/م³</td>
+                                </tr>
+                                <tr>
+                                    <td>قرموط (تسمين)</td>
+                                    <td>40-80 كجم/م³</td>
+                                    <td>70-100 كجم/م³</td>
+                                    <td>>100 كجم/م³</td>
+                                </tr>
+                                <tr>
+                                    <td>مبروك (تسمين)</td>
+                                    <td>2-5 سمكة/م²</td>
+                                    <td>5-10 سمكة/م²</td>
+                                    <td>—</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+     NEW TOOLS MODALS
+     1. Profit Calculator
+     2. FCR Calculator
+     3. Biofloc Calculator
+     4. Feeding Schedule
+     ============================================ -->
+
+    <!-- Profit Calculator Modal -->
+    <div id="profit-calculator-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <!-- Input Section -->
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>💰 حاسبة الربح والخسارة</h2>
+                        <p>احسب التكاليف والأرباح المتوقعة لدورة الإنتاج الكاملة</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📊 معلومات الإنتاج</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐟</span>
+                            <input type="number" id="profit-fish-count" placeholder="عدد الأسماك" value="10000">
+                            <span class="input-unit">سمكة</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <input type="number" id="profit-initial-weight" placeholder="الوزن الابتدائي" value="10"
+                                step="0.1">
+                            <span class="input-unit">جرام</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🎯</span>
+                            <input type="number" id="profit-target-weight" placeholder="الوزن المستهدف" value="300"
+                                step="1">
+                            <span class="input-unit">جرام</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>💵 التكاليف</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐠</span>
+                            <input type="number" id="profit-fingerling-price" placeholder="سعر الزريعة" value="0.5"
+                                step="0.1">
+                            <span class="input-unit">جنيه/سمكة</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🌾</span>
+                            <input type="number" id="profit-feed-price" placeholder="سعر طن العلف" value="12000"
+                                step="100">
+                            <span class="input-unit">جنيه/طن</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📊</span>
+                            <input type="number" id="profit-fcr" placeholder="معدل FCR" value="1.5" step="0.1">
+                            <span class="input-unit">FCR</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚡</span>
+                            <input type="number" id="profit-electricity" placeholder="تكلفة الكهرباء" value="2000"
+                                step="100">
+                            <span class="input-unit">جنيه/شهر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">👨‍🌾</span>
+                            <input type="number" id="profit-labor" placeholder="تكلفة العمالة" value="3000" step="100">
+                            <span class="input-unit">جنيه/شهر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🛠️</span>
+                            <input type="number" id="profit-other" placeholder="تكاليف أخرى" value="1000" step="100">
+                            <span class="input-unit">جنيه/شهر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📅</span>
+                            <input type="number" id="profit-months" placeholder="مدة الدورة" value="6" step="1">
+                            <span class="input-unit">شهر</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>💰 معلومات البيع</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">💵</span>
+                            <input type="number" id="profit-selling-price" placeholder="سعر البيع" value="35" step="1">
+                            <span class="input-unit">جنيه/كجم</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📉</span>
+                            <input type="number" id="profit-survival-rate" placeholder="معدل البقاء" value="85"
+                                step="1">
+                            <span class="input-unit">%</span>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateProfit()">
+                        <span>احسب الربح</span>
+                        <span>💰</span>
+                    </button>
+                </div>
+
+                <!-- Results Section -->
+                <div class="calc-results" id="profit-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">💰</div>
+                        <p>أدخل البيانات واضغط "احسب الربح" للحصول على النتائج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  FCR Calculator Modal -->
+    <div id="fcr-calculator-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>📊 حاسبة FCR (معدل تحويل العلف)</h2>
+                        <p>قيّم كفاءة العلف واحسب معدل التحويل</p>
+                    </div>
+
+                    <div class="info-box info">
+                        <strong>ما هو FCR؟</strong>
+                        <p>FCR = إجمالي العلف المستخدم / إجمالي الوزن المكتسب</p>
+                        <p>كلما كان الرقم أقل، كلما كان أفضل!</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📊 بيانات التربية</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <input type="number" id="fcr-initial-weight" placeholder="الوزن الابتدائي" value="100"
+                                step="1">
+                            <span class="input-unit">كجم (إجمالي)</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📈</span>
+                            <input type="number" id="fcr-final-weight" placeholder="الوزن النهائي" value="2000"
+                                step="1">
+                            <span class="input-unit">كجم (إجمالي)</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🌾</span>
+                            <input type="number" id="fcr-feed-used" placeholder="كمية العلف المستخدمة" value="2850"
+                                step="1">
+                            <span class="input-unit">كجم</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📉 معلومات الوفيات (اختياري)</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">💀</span>
+                            <input type="number" id="fcr-mortality-weight" placeholder="وزن الأسماك النافقة" value="0"
+                                step="1">
+                            <span class="input-unit">كجم</span>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateFCR()">
+                        <span>احسب FCR</span>
+                        <span>📊</span>
+                    </button>
+                </div>
+
+                <div class="calc-results" id="fcr-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">📊</div>
+                        <p>أدخل البيانات واضغط "احسب FCR" للحصول على النتائج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biofloc Calculator Modal -->
+    <div id="biofloc-calculator-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>🦠 حاسبة البايوفلوك</h2>
+                        <p>احسب نسبة C:N وكمية مصدر الكربون المطلوبة</p>
+                    </div>
+
+                    <div class="info-box warning">
+                        <strong>⚠️ ما هو البايوفلوك؟</strong>
+                        <p>تقنية حديثة لتحويل الأمونيا الضارة إلى بروتين نافع</p>
+                        <p>توفر 90% من المياه وتقلل تكلفة العلف بنسبة 20-30%</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>💧 معلومات الحوض</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🏊</span>
+                            <input type="number" id="biofloc-volume" placeholder="حجم الحوض" value="10000" step="1">
+                            <span class="input-unit">لتر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">☠️</span>
+                            <input type="number" id="biofloc-ammonia" placeholder="مستوى الأمونيا (TAN)" value="2"
+                                step="0.1">
+                            <span class="input-unit">ppm</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>🎯 النسبة المستهدفة</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <select id="biofloc-cn-ratio">
+                                <option value="10">10:1 (بداية النظام)</option>
+                                <option value="15" selected>15:1 (موصى به)</option>
+                                <option value="6">6:1 (صيانة)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>🍬 مصدر الكربون</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🧂</span>
+                            <select id="biofloc-carbon-source">
+                                <option value="sugar">سكر (100% كربون)</option>
+                                <option value="molasses" selected>دبس (50% كربون)</option>
+                                <option value="tapioca">دقيق تابيوكا (65% كربون)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateBiofloc()">
+                        <span>احسب كمية الكربون</span>
+                        <span>🦠</span>
+                    </button>
+                </div>
+
+                <div class="calc-results" id="biofloc-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">🦠</div>
+                        <p>أدخل البيانات واضغط "احسب كمية الكربون" للحصول على النتائج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feeding Schedule Modal -->
+    <div id="feeding-schedule-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>🐟 جدول التغذية التلقائي</h2>
+                        <p>احصل على جدول تغذية مخصص حسب نوع السمك ووزنه</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>🐠 نوع السمك</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐟</span>
+                            <select id="feeding-fish-type">
+                                <option value="tilapia">بلطي</option>
+                                <option value="catfish">قرموط</option>
+                                <option value="bass">قاروص</option>
+                                <option value="mullet">بوري</option>
+                                <option value="carp">مبروك</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📊 معلومات الأسماك</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐟</span>
+                            <input type="number" id="feeding-fish-count" placeholder="عدد الأسماك" value="10000"
+                                step="1">
+                            <span class="input-unit">سمكة</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <input type="number" id="feeding-avg-weight" placeholder="متوسط الوزن" value="100" step="1">
+                            <span class="input-unit">جرام</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🌡️</span>
+                            <input type="number" id="feeding-water-temp" placeholder="درجة حرارة الماء" value="28"
+                                step="0.5">
+                            <span class="input-unit">°C</span>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateFeedingSchedule()">
+                        <span>إنشاء الجدول</span>
+                        <span>📅</span>
+                    </button>
+                </div>
+
+                <div class="calc-results" id="feeding-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">📅</div>
+                        <p>أدخل البيانات واضغط "إنشاء الجدول" للحصول على جدول التغذية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ============================================
+     NEW TOOLS MODALS
+     1. Profit Calculator
+     2. FCR Calculator
+     3. Biofloc Calculator
+     4. Feeding Schedule
+     ============================================ -->
+
+    <!-- Profit Calculator Modal -->
+    <div id="profit-calculator-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <!-- Input Section -->
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>💰 حاسبة الربح والخسارة</h2>
+                        <p>احسب التكاليف والأرباح المتوقعة لدورة الإنتاج الكاملة</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📊 معلومات الإنتاج</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐟</span>
+                            <input type="number" id="profit-fish-count" placeholder="عدد الأسماك" value="10000">
+                            <span class="input-unit">سمكة</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <input type="number" id="profit-initial-weight" placeholder="الوزن الابتدائي" value="10"
+                                step="0.1">
+                            <span class="input-unit">جرام</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🎯</span>
+                            <input type="number" id="profit-target-weight" placeholder="الوزن المستهدف" value="300"
+                                step="1">
+                            <span class="input-unit">جرام</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>💵 التكاليف</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐠</span>
+                            <input type="number" id="profit-fingerling-price" placeholder="سعر الزريعة" value="0.5"
+                                step="0.1">
+                            <span class="input-unit">جنيه/سمكة</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🌾</span>
+                            <input type="number" id="profit-feed-price" placeholder="سعر طن العلف" value="12000"
+                                step="100">
+                            <span class="input-unit">جنيه/طن</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📊</span>
+                            <input type="number" id="profit-fcr" placeholder="معدل FCR" value="1.5" step="0.1">
+                            <span class="input-unit">FCR</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚡</span>
+                            <input type="number" id="profit-electricity" placeholder="تكلفة الكهرباء" value="2000"
+                                step="100">
+                            <span class="input-unit">جنيه/شهر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">👨‍🌾</span>
+                            <input type="number" id="profit-labor" placeholder="تكلفة العمالة" value="3000" step="100">
+                            <span class="input-unit">جنيه/شهر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🛠️</span>
+                            <input type="number" id="profit-other" placeholder="تكاليف أخرى" value="1000" step="100">
+                            <span class="input-unit">جنيه/شهر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📅</span>
+                            <input type="number" id="profit-months" placeholder="مدة الدورة" value="6" step="1">
+                            <span class="input-unit">شهر</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>💰 معلومات البيع</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">💵</span>
+                            <input type="number" id="profit-selling-price" placeholder="سعر البيع" value="35" step="1">
+                            <span class="input-unit">جنيه/كجم</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📉</span>
+                            <input type="number" id="profit-survival-rate" placeholder="معدل البقاء" value="85"
+                                step="1">
+                            <span class="input-unit">%</span>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateProfit()">
+                        <span>احسب الربح</span>
+                        <span>💰</span>
+                    </button>
+                </div>
+
+                <!-- Results Section -->
+                <div class="calc-results" id="profit-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">💰</div>
+                        <p>أدخل البيانات واضغط "احسب الربح" للحصول على النتائج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  FCR Calculator Modal -->
+    <div id="fcr-calculator-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>📊 حاسبة FCR (معدل تحويل العلف)</h2>
+                        <p>قيّم كفاءة العلف واحسب معدل التحويل</p>
+                    </div>
+
+                    <div class="info-box info">
+                        <strong>ما هو FCR؟</strong>
+                        <p>FCR = إجمالي العلف المستخدم / إجمالي الوزن المكتسب</p>
+                        <p>كلما كان الرقم أقل، كلما كان أفضل!</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📊 بيانات التربية</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <input type="number" id="fcr-initial-weight" placeholder="الوزن الابتدائي" value="100"
+                                step="1">
+                            <span class="input-unit">كجم (إجمالي)</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">📈</span>
+                            <input type="number" id="fcr-final-weight" placeholder="الوزن النهائي" value="2000"
+                                step="1">
+                            <span class="input-unit">كجم (إجمالي)</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🌾</span>
+                            <input type="number" id="fcr-feed-used" placeholder="كمية العلف المستخدمة" value="2850"
+                                step="1">
+                            <span class="input-unit">كجم</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📉 معلومات الوفيات (اختياري)</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">💀</span>
+                            <input type="number" id="fcr-mortality-weight" placeholder="وزن الأسماك النافقة" value="0"
+                                step="1">
+                            <span class="input-unit">كجم</span>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateFCR()">
+                        <span>احسب FCR</span>
+                        <span>📊</span>
+                    </button>
+                </div>
+
+                <div class="calc-results" id="fcr-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">📊</div>
+                        <p>أدخل البيانات واضغط "احسب FCR" للحصول على النتائج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biofloc Calculator Modal -->
+    <div id="biofloc-calculator-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>🦠 حاسبة البايوفلوك</h2>
+                        <p>احسب نسبة C:N وكمية مصدر الكربون المطلوبة</p>
+                    </div>
+
+                    <div class="info-box warning">
+                        <strong>⚠️ ما هو البايوفلوك؟</strong>
+                        <p>تقنية حديثة لتحويل الأمونيا الضارة إلى بروتين نافع</p>
+                        <p>توفر 90% من المياه وتقلل تكلفة العلف بنسبة 20-30%</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>💧 معلومات الحوض</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🏊</span>
+                            <input type="number" id="biofloc-volume" placeholder="حجم الحوض" value="10000" step="1">
+                            <span class="input-unit">لتر</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">☠️</span>
+                            <input type="number" id="biofloc-ammonia" placeholder="مستوى الأمونيا (TAN)" value="2"
+                                step="0.1">
+                            <span class="input-unit">ppm</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>🎯 النسبة المستهدفة</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <select id="biofloc-cn-ratio">
+                                <option value="10">10:1 (بداية النظام)</option>
+                                <option value="15" selected>15:1 (موصى به)</option>
+                                <option value="6">6:1 (صيانة)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>🍬 مصدر الكربون</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🧂</span>
+                            <select id="biofloc-carbon-source">
+                                <option value="sugar">سكر (100% كربون)</option>
+                                <option value="molasses" selected>دبس (50% كربون)</option>
+                                <option value="tapioca">دقيق تابيوكا (65% كربون)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateBiofloc()">
+                        <span>احسب كمية الكربون</span>
+                        <span>🦠</span>
+                    </button>
+                </div>
+
+                <div class="calc-results" id="biofloc-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">🦠</div>
+                        <p>أدخل البيانات واضغط "احسب كمية الكربون" للحصول على النتائج</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feeding Schedule Modal -->
+    <div id="feeding-schedule-modal" class="tool-modal">
+        <div class="modal-overlay" onclick="closeTool()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTool()">×</button>
+
+            <div class="calculator-layout">
+                <div class="calc-inputs">
+                    <div class="calc-header">
+                        <h2>🐟 جدول التغذية التلقائي</h2>
+                        <p>احصل على جدول تغذية مخصص حسب نوع السمك ووزنه</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>🐠 نوع السمك</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐟</span>
+                            <select id="feeding-fish-type">
+                                <option value="tilapia">بلطي</option>
+                                <option value="catfish">قرموط</option>
+                                <option value="bass">قاروص</option>
+                                <option value="mullet">بوري</option>
+                                <option value="carp">مبروك</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>📊 معلومات الأسماك</label>
+
+                        <div class="input-field">
+                            <span class="input-icon">🐟</span>
+                            <input type="number" id="feeding-fish-count" placeholder="عدد الأسماك" value="10000"
+                                step="1">
+                            <span class="input-unit">سمكة</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">⚖️</span>
+                            <input type="number" id="feeding-avg-weight" placeholder="متوسط الوزن" value="100" step="1">
+                            <span class="input-unit">جرام</span>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="input-icon">🌡️</span>
+                            <input type="number" id="feeding-water-temp" placeholder="درجة حرارة الماء" value="28"
+                                step="0.5">
+                            <span class="input-unit">°C</span>
+                        </div>
+                    </div>
+
+                    <button class="calc-button" onclick="calculateFeedingSchedule()">
+                        <span>إنشاء الجدول</span>
+                        <span>📅</span>
+                    </button>
+                </div>
+
+                <div class="calc-results" id="feeding-results">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">📅</div>
+                        <p>أدخل البيانات واضغط "إنشاء الجدول" للحصول على جدول التغذية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>🐟 مستشار مزارع الأسماك - جميع الحقوق محفوظة © 2024</p>
+        </div>
+    </footer>
+
+    <script src="lang.js?v=7.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const content = await API.getContent();
+                const allToolIds = ['feed-calculator', 'water-quality', 'fish-density', 'profit-calculator', 'fcr-calculator', 'biofloc-calculator', 'feeding-schedule'];
+
+                let visibleTools = {};
+                if (content && content.visible_tools) {
+                    visibleTools = JSON.parse(content.visible_tools);
+                } else {
+                    // Default: all visible
+                    allToolIds.forEach(id => visibleTools[id] = true);
+                }
+
+                // Show only visible tools
+                allToolIds.forEach(toolId => {
+                    const card = document.querySelector(`[data-tool-id="${toolId}"]`);
+                    if (card && visibleTools[toolId] !== false) {
+                        card.style.display = '';
+                    }
+                });
+
+                // Update Logo
+                if (content.site_logo) {
+                    document.querySelectorAll('.logo-image').forEach(img => {
+                        img.src = content.site_logo;
+                    });
+
+                    // Update favicon
+                    const favicon = document.getElementById('favicon');
+                    if (favicon) {
+                        favicon.href = content.site_logo;
+                    }
+                }
+            } catch (e) {
+                console.error(e);
+                // On error, show all tools
+                document.querySelectorAll('[data-tool-id]').forEach(card => {
+                    card.style.display = '';
+                });
+            }
+        });
+    </script>
+    <script src="config.js?v=3.0"></script>
+    <script src="api.js?v=3.0"></script>
+    <script src="navbar.js?v=3.0"></script>
+    <script src="tools.js"></script>
+    <script src="new-tools-calc.js"></script>
+    <script src="add-labels.js"></script>
+</body>
+
+</html>

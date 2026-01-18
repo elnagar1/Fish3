@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build: ./laravel-backend
+    build: .
     container_name: fish-farm-app
     ports:
       - "${PORT:-8000}:80"

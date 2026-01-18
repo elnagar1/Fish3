@@ -6,62 +6,48 @@
 
 ## 🚀 التشغيل السريع
 
-### باستخدام Docker (موصى به):
+### باستخدام Docker Compose (موصى به - أسهل طريقة):
+يعمل هذا الأمر على أي سيرفر أو جهاز شخصي (Windows/Linux/Mac).
+
+1. تأكد من تثبيت Docker و Docker Compose.
+2. شغل الأمر التالي في مجلد المشروع الرئيسي:
 
 ```bash
-# بناء الصورة
-docker build -t fish-farm .
-
-# تشغيل الحاوية
-docker run -p 8080:8080 fish-farm
+docker-compose up -d --build
 ```
+3. افتح المتصفح: `http://localhost:8000`
 
-أو باستخدام Docker Compose:
-
-```bash
-docker-compose up
-```
-
-افتح المتصفح: `http://localhost:8080`
+البيانات (Database) سيتم حفظها تلقائياً ولن تضيع عند إعادة التشغيل.
 
 ---
 
-### بدون Docker:
+### بدون Docker (للتطوير المحلي):
 
+1. ادخل لمجلد `laravel-backend`:
 ```bash
-# تثبيت المكتبات
-npm install
+cd laravel-backend
+```
 
-# تشغيل السيرفر
-node server.js
+2. ثبت المكتبات وشغل السيرفر:
+```bash
+composer install
+npm install && npm run build
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
 ```
 
 ---
 
 ## 🌐 النشر على السيرفرات
 
-### Railway.app:
-1. ارفع المشروع على GitHub
-2. اربط Repository بـ Railway
-3. سيتم Deploy تلقائياً!
-
-### Render.com:
-1. اذهب إلى https://render.com
-2. New → Web Service
-3. اختر Repository
-4. Build Command: `npm install`
-5. Start Command: `node server.js`
-
-### Google Cloud Run:
+### أي سيرفر (VPS / Cloud):
+فقط انسخ ملفات المشروع وشغل:
 ```bash
-gcloud run deploy fish-farm --source . --port 8080
+docker-compose up -d --build
 ```
-
-### أي سيرفر Docker:
-```bash
-docker pull your-registry/fish-farm
-docker run -d -p 80:8080 your-registry/fish-farm
-```
+سيقوم السكريبت بإعداد كل شيء تلقائياً (قاعدة البيانات، الاستضافه، الروابط).
 
 ---
 

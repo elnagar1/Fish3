@@ -1,0 +1,495 @@
+/* ==========================================================================
+   FISH FARM NEW TOOLS - FINAL THEME (High Contrast & Clear Visibility)
+   ========================================================================== */
+
+/* --- 1. Base Modal Styles --- */
+.tool-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cairo', sans-serif;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    background: #ffffff !important;
+    /* Force white background */
+    border-radius: 20px;
+    width: 98% !important;
+    /* Larger width */
+    max-width: 1400px !important;
+    /* Larger max-width */
+    max-height: 95vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    color: #333333;
+    /* Default text color */
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: #f1f5f9;
+    color: #ef4444;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background: #ef4444;
+    color: white;
+    border-color: #ef4444;
+    transform: rotate(90deg);
+}
+
+/* --- 2. Layout & Typography --- */
+.calculator-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+}
+
+/* Force Header Visibility */
+.calc-header h2 {
+    color: #0f172a !important;
+    /* Dark Slate */
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+}
+
+.calc-header p {
+    color: #475569 !important;
+    /* Slate 600 */
+    font-size: 16px !important;
+    margin-bottom: 30px !important;
+    display: block !important;
+}
+
+/* --- 3. Inputs & Labels --- */
+.input-group {
+    background: #f8fafc !important;
+    /* Very light slate */
+    padding: 24px !important;
+    border-radius: 16px !important;
+    border: 1px solid #e2e8f0 !important;
+    margin-bottom: 24px !important;
+}
+
+.input-group label {
+    display: block !important;
+    color: #0f172a !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+/* Field Labels (Added via JS or implicit) */
+.field-label {
+    display: block !important;
+    color: #334155 !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+}
+
+.input-field {
+    background: #ffffff !important;
+    border: 2px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    padding: 2px 15px !important;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px !important;
+    height: 50px;
+    transition: border-color 0.2s;
+}
+
+.input-field:focus-within {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-icon {
+    font-size: 20px;
+    margin-left: 12px;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.input-field input,
+.input-field select {
+    border: none !important;
+    background: transparent !important;
+    color: #0f172a !important;
+    /* Dark text for input */
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    width: 100%;
+    height: 100%;
+    outline: none !important;
+}
+
+.input-unit {
+    color: #64748b !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-right: 12px;
+    white-space: nowrap;
+}
+
+/* Calculate Button */
+.calc-button {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%) !important;
+    color: #ffffff !important;
+    border: none;
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: transform 0.2s;
+}
+
+.calc-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 4. Results Section (The Critical Part) --- */
+.results-header h3 {
+    color: #0f172a !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    margin-bottom: 20px !important;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 15px;
+}
+
+/* Result Cards - High Contrast Colors */
+.result-card {
+    padding: 24px !important;
+    border-radius: 16px !important;
+    margin-bottom: 24px !important;
+    text-align: center !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Success Card (Green) */
+.result-card.success {
+    background: #dcfce7 !important;
+    /* Very Light Green */
+}
+
+.result-card.success .result-value {
+    color: #15803d !important;
+}
+
+/* Dark Green */
+.result-card.success .result-label {
+    color: #166534 !important;
+}
+
+.result-card.success .result-note {
+    color: #14532d !important;
+}
+
+/* Info Card (Blue) */
+.result-card.info {
+    background: #dbeafe !important;
+    /* Very Light Blue */
+}
+
+.result-card.info .result-value {
+    color: #1d4ed8 !important;
+}
+
+/* Dark Blue */
+.result-card.info .result-label {
+    color: #1e40af !important;
+}
+
+.result-card.info .result-note {
+    color: #1e3a8a !important;
+}
+
+/* Warning Card (Yellow/Orange) */
+.result-card.warning {
+    background: #fef3c7 !important;
+    /* Very Light Amber */
+}
+
+.result-card.warning .result-value {
+    color: #b45309 !important;
+}
+
+/* Dark Amber */
+.result-card.warning .result-label {
+    color: #92400e !important;
+}
+
+.result-card.warning .result-note {
+    color: #78350f !important;
+}
+
+/* Danger Card (Red) */
+.result-card.danger {
+    background: #fee2e2 !important;
+    /* Very Light Red */
+}
+
+.result-card.danger .result-value {
+    color: #b91c1c !important;
+}
+
+/* Dark Red */
+.result-card.danger .result-label {
+    color: #991b1b !important;
+}
+
+.result-card.danger .result-note {
+    color: #7f1d1d !important;
+}
+
+/* Plain Card */
+.result-card:not(.success):not(.info):not(.warning):not(.danger) {
+    background: #f1f5f9 !important;
+}
+
+.result-card:not(.success):not(.info):not(.warning):not(.danger) .result-value {
+    color: #0f172a !important;
+}
+
+/* Result Typography */
+.result-label {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+}
+
+.result-value {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    margin: 10px 0 !important;
+    display: block !important;
+}
+
+.result-note {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-top: 8px !important;
+    display: block !important;
+}
+
+/* Grid Results */
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.result-item {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    text-align: center !important;
+}
+
+.result-item .result-label {
+    color: #64748b !important;
+}
+
+.result-item .result-value {
+    color: #0f172a !important;
+    font-size: 20px !important;
+}
+
+/* --- 5. Tables (Fixed) --- */
+.results-table {
+    width: 100%;
+    background: #ffffff !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.results-table thead th {
+    background: #0f172a !important;
+    /* Dark header */
+    color: #ffffff !important;
+    /* White text */
+    padding: 12px 16px !important;
+    text-align: right !important;
+    font-weight: 700 !important;
+}
+
+.results-table tbody td {
+    background: #ffffff !important;
+    color: #334155 !important;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.results-table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Total Row */
+.results-table tr.total-row td {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    font-weight: 800 !important;
+}
+
+/* Highlight Row */
+.results-table tr.highlight td {
+    background: #fef9c3 !important;
+    /* Yellow highlight */
+    color: #0f172a !important;
+}
+
+/* --- 6. Info Boxes & Steps --- */
+.info-box {
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin: 20px 0 !important;
+    border-right: 4px solid transparent !important;
+}
+
+.info-box.info {
+    background: #eff6ff !important;
+    border-color: #3b82f6 !important;
+}
+
+.info-box.warning {
+    background: #fffbeb !important;
+    border-color: #f59e0b !important;
+}
+
+.info-box.success {
+    background: #f0fdf4 !important;
+    border-color: #22c55e !important;
+}
+
+.info-box strong {
+    color: #0f172a !important;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.info-box p,
+.info-box li {
+    color: #334155 !important;
+    line-height: 1.6;
+}
+
+/* Steps List - FORCE VISIBILITY */
+.steps-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.steps-list li {
+    position: relative !important;
+    padding-right: 50px !important;
+    margin-bottom: 24px !important;
+    display: block !important;
+    color: #334155 !important;
+    opacity: 1 !important;
+    background: transparent !important;
+}
+
+/* The Number Circle */
+.steps-list li::before {
+    content: counter(list-item) !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 700 !important;
+    z-index: 10 !important;
+}
+
+/* Title of the step */
+.steps-list li strong {
+    color: #0f172a !important;
+    display: block !important;
+    margin-bottom: 4px !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    opacity: 1 !important;
+}
+
+/* Description of the step */
+.steps-list li p {
+    color: #334155 !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    opacity: 1 !important;
+    display: block !important;
+}
+
+/* --- 7. Responsive --- */
+@media (max-width: 768px) {
+    .calculator-layout {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}

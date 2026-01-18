@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - مستشار مزارع الأسماك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <!-- Quill CCS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <span class="logo-icon">🐟</span>
+                <h2>لوحة التحكم</h2>
+            </div>
+            <nav class="admin-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i> الرئيسية
+                </a>
+                <a href="#articles" class="nav-item" data-section="articles">
+                    <i class="fas fa-book-open"></i> إدارة المقالات
+                </a>
+                <a href="#categories" class="nav-item" data-section="categories">
+                    <i class="fas fa-tags"></i> إدارة التصنيفات
+                </a>
+                <a href="#content" class="nav-item" data-section="content">
+                    <i class="fas fa-edit"></i> تعديل المحتوى
+                </a>
+                <a href="#questions" class="nav-item" data-section="questions">
+                    <i class="fas fa-question-circle"></i> إدارة الأسئلة
+                </a>
+                <a href="#team" class="nav-item" data-section="team">
+                    <i class="fas fa-users"></i> إدارة الفريق
+                </a>
+                <a href="#tools" class="nav-item" data-section="tools">
+                    <i class="fas fa-tools"></i> إدارة الأدوات
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i> الإعدادات
+                </a>
+                <a href="index.html" class="nav-item" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> عرض الموقع
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1 id="pageTitle">الرئيسية</h1>
+            </header>
+
+            <div class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="content-section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="stat-info">
+                                <h3 id="articlesCount">0</h3>
+                                <p>إجمالي المقالات</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+                            <div class="stat-info">
+                                <h3>5</h3>
+                                <p>الأسئلة النشطة</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                            <div class="stat-info">
+                                <h3>-</h3>
+                                <p>الزيارات اليوم</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="welcome-card">
+                        <h2>مرحباً بك في لوحة التحكم! 👋</h2>
+                        <p>من هنا يمكنك إدارة جميع محتويات الموقع بسهولة.</p>
+                        <ul>
+                            <li>✅ إضافة وتعديل المقالات</li>
+                            <li>✅ تعديل النصوص والعناوين</li>
+                            <li>✅ إدارة الأسئلة والخيارات</li>
+                            <li>✅ تخصيص الإعدادات</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Articles Section -->
+                <section id="articles-section" class="content-section">
+                    <div class="section-header">
+                        <h2>إدارة المقالات</h2>
+                        <button class="btn btn-primary" id="addArticleBtn">
+                            <i class="fas fa-plus"></i> إضافة مقال جديد
+                        </button>
+                    </div>
+
+                    <div class="articles-list" id="articlesList">
+                        <!-- Articles will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Categories Section -->
+                <section id="categories-section" class="content-section">
+                    <div class="section-header">
+                        <h2>إدارة التصنيفات</h2>
+                        <div class="add-category-inline" style="display: flex; gap: 10px;">
+                            <input type="text" id="newCategoryName" placeholder="اسم التصنيف (عربي)"
+                                class="form-control">
+                            <input type="text" id="newCategoryNameEn" placeholder="Category Name (English)"
+                                class="form-control" dir="ltr">
+                            <button class="btn btn-primary" id="addNewCategoryBtn">
+                                <i class="fas fa-plus"></i> إضافة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="settings-grid" id="categoriesList"
+                        style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+                        <!-- Categories will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Content Section -->
+                <section id="content-section" class="content-section">
+                    <h2>تعديل محتوى الموقع</h2>
+
+                    <div class="content-editor">
+                        <div class="editor-group">
+                            <label>عنوان الموقع الرئيسي (عربي)</label>
+                            <input type="text" id="siteTitle" class="form-control" value="مستشار مزارع الأسماك">
+                        </div>
+                        <div class="editor-group">
+                            <label>Site Title (English)</label>
+                            <input type="text" id="siteTitle_en" class="form-control"
+                                placeholder="Fish Farm Consultant">
+                        </div>
+
+                        <hr class="my-4">
+                        <h4>شعار الموقع (Logo)</h4>
+
+                        <div class="editor-group">
+                            <label>صورة الشعار الحالية</label>
+                            <div style="margin: 10px 0;">
+                                <img id="currentLogo" src="images/logo.jpg" alt="Current Logo"
+                                    style="max-height: 80px; border: 1px solid #ddd; padding: 5px; border-radius: 8px;">
+                            </div>
+                        </div>
+
+                        <div class="editor-group">
+                            <label>تحميل شعار جديد</label>
+                            <input type="file" id="logoUpload" accept="image/*" class="form-control">
+                            <small style="color: #666; display: block; margin-top: 5px;">يفضل استخدام صورة بخلفية شفافة
+                                (PNG)</small>
+                        </div>
+
+                        <button class="btn btn-primary" id="uploadLogoBtn" style="margin-bottom: 20px;">
+                            <i class="fas fa-upload"></i> رفع الشعار
+                        </button>
+
+                        <hr class="my-4">
+
+                        <div class="editor-group">
+                            <label>العنوان الرئيسي (عربي)</label>
+                            <input type="text" id="heroMainTitle" class="form-control" value="استشارات ذكية">
+                        </div>
+                        <div class="editor-group">
+                            <label>Main Title (English)</label>
+                            <input type="text" id="heroMainTitle_en" class="form-control"
+                                placeholder="Smart Consultant">
+                        </div>
+
+                        <div class="editor-group">
+                            <label>العنوان الفرعي (عربي)</label>
+                            <input type="text" id="heroSubTitle" class="form-control" value="لمزرعتك السمكية">
+                        </div>
+                        <div class="editor-group">
+                            <label>Sub Title (English)</label>
+                            <input type="text" id="heroSubTitle_en" class="form-control"
+                                placeholder="For Your Fish Farm">
+                        </div>
+
+                        <div class="editor-group">
+                            <label>الوصف (عربي)</label>
+                            <textarea id="heroDescriptionField" class="form-control"
+                                rows="3">احصل على نصائح وتوجيهات متخصصة من خبير افتراضي مدعوم بالذكاء الاصطناعي.</textarea>
+                        </div>
+                        <div class="editor-group">
+                            <label>Description (English)</label>
+                            <textarea id="heroDescriptionField_en" class="form-control" rows="3"
+                                placeholder="Get expert advice..."></textarea>
+                        </div>
+
+                        <div class="editor-group">
+                            <label>نص زر الاستشارة (عربي)</label>
+                            <input type="text" id="heroButtonTextField" class="form-control"
+                                value="ابدأ الاستشارة الآن">
+                        </div>
+                        <div class="editor-group">
+                            <label>Button Text (English)</label>
+                            <input type="text" id="heroButtonTextField_en" class="form-control"
+                                placeholder="Start Consultation">
+                        </div>
+
+                        <hr class="my-4">
+                        <h4>إعدادات قسم من نحن (الفريق)</h4>
+
+                        <div class="editor-group">
+                            <label>عنوان القسم (عربي)</label>
+                            <input type="text" id="sectionAboutTitle" class="form-control"
+                                placeholder="فريق مستشار مزارع الأسماك">
+                        </div>
+                        <div class="editor-group">
+                            <label>Section Title (English)</label>
+                            <input type="text" id="sectionAboutTitle_en" class="form-control"
+                                placeholder="Fish Farm Consultant Team" dir="ltr">
+                        </div>
+
+                        <div class="editor-group">
+                            <label>وصف القسم (عربي)</label>
+                            <input type="text" id="sectionAboutSubtitle" class="form-control"
+                                placeholder="نحن فريق من الخبراء...">
+                        </div>
+                        <div class="editor-group">
+                            <label>Section Subtitle (English)</label>
+                            <input type="text" id="sectionAboutSubtitle_en" class="form-control"
+                                placeholder="We are a team..." dir="ltr">
+                        </div>
+
+                        <hr class="my-4">
+                        <h4>نص حقوق النشر (الفوتر)</h4>
+
+                        <div class="editor-group">
+                            <label>النص (عربي)</label>
+                            <input type="text" id="footerRightsField" class="form-control">
+                        </div>
+                        <div class="editor-group">
+                            <label>Footer Text (English)</label>
+                            <input type="text" id="footerRightsField_en" class="form-control" dir="ltr">
+                        </div>
+
+                        <button class="btn btn-success" id="saveContentBtn">
+                            <i class="fas fa-save"></i> حفظ التعديلات
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Questions Section -->
+                <section id="questions-section" class="content-section">
+                    <h2>إدارة الأسئلة</h2>
+                    <div id="questionsList">
+                        <!-- Questions will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Team Section -->
+                <section id="team-section" class="content-section">
+                    <div class="section-header">
+                        <h2>إدارة الفريق</h2>
+                        <button class="btn btn-primary" id="addTeamMemberBtn">
+                            <i class="fas fa-plus"></i> إضافة عضو جديد
+                        </button>
+                    </div>
+
+                    <div class="team-list" id="teamList">
+                        <!-- Team members will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Tools Management Section -->
+                <section id="tools-section" class="content-section">
+                    <h2>إدارة الأدوات</h2>
+                    <div class="card"
+                        style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <div class="card-body">
+                            <p>تحكم في ظهور الأدوات في صفحة الأدوات.</p>
+                            <div id="toolsToggles"
+                                style="display: grid; gap: 15px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-top: 20px;">
+                                <!-- populated by JS -->
+                            </div>
+                            <button class="btn btn-success mt-4" id="saveToolsBtn" style="margin-top: 20px;">
+                                <i class="fas fa-save"></i> حفظ إعدادات الأدوات
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="content-section">
+                    <h2>الإعدادات العامة</h2>
+
+                    <div class="settings-grid">
+                        <div class="setting-card">
+                            <h3><i class="fas fa-palette"></i> الألوان</h3>
+                            <div class="color-picker-group">
+                                <label>اللون الأساسي</label>
+                                <input type="color" id="primaryColor" value="#1a4a6e">
+                            </div>
+                            <div class="color-picker-group">
+                                <label>لون التمييز</label>
+                                <input type="color" id="accentColor" value="#2ecc71">
+                            </div>
+                        </div>
+
+                        <div class="setting-card">
+                            <h3><i class="fas fa-robot"></i> إعدادات الذكاء الاصطناعي</h3>
+                            <div class="form-group">
+                                <label>المزود الافتراضي</label>
+                                <select id="aiProvider" class="form-control">
+                                    <option value="gemini" selected>Google Gemini 1.5 Pro</option>
+                                    <option value="groq">⚡ Groq (Llama 3)</option>
+                                    <option value="openai">OpenAI GPT-4</option>
+                                    <option value="anthropic">Anthropic Claude 3.5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Gemini API Key</label>
+                                <input type="password" id="geminiKey" class="form-control"
+                                    placeholder="أدخل مفتاح Gemini API">
+                            </div>
+                            <div class="form-group">
+                                <label>Groq API Key</label>
+                                <input type="password" id="groqKey" class="form-control"
+                                    placeholder="أدخل مفتاح Groq API">
+                            </div>
+                            <div class="form-group">
+                                <label>OpenAI API Key</label>
+                                <input type="password" id="openaiKey" class="form-control"
+                                    placeholder="أدخل مفتاح OpenAI API">
+                            </div>
+                            <div class="form-group">
+                                <label>Anthropic API Key</label>
+                                <input type="password" id="anthropicKey" class="form-control"
+                                    placeholder="أدخل مفتاح Anthropic API">
+                            </div>
+                            <div class="form-group" style="margin-top: 1.5rem;">
+                                <button class="btn btn-primary" id="saveAISettingsBtn" style="width: 100%;">
+                                    <i class="fas fa-save"></i> حفظ إعدادات الذكاء الاصطناعي
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="setting-card">
+                            <h3><i class="fas fa-database"></i> البيانات</h3>
+                            <button class="btn btn-secondary" id="exportDataBtn">
+                                <i class="fas fa-download"></i> تصدير البيانات
+                            </button>
+                            <button class="btn btn-secondary" id="importDataBtn">
+                                <i class="fas fa-upload"></i> استيراد البيانات
+                            </button>
+                            <input type="file" id="importFileInput" style="display: none;" accept=".json">
+                        </div>
+
+                        <div class="setting-card">
+                            <h3><i class="fas fa-bars"></i> إعدادات القائمة العلوية</h3>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showNavHome" checked>
+                                    <span>إظهار "الرئيسية"</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showNavArticles" checked>
+                                    <span>إظهار "المقالات"</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showNavTools" checked>
+                                    <span>إظهار "الأدوات"</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showNavAbout" checked>
+                                    <span>إظهار "من نحن"</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showNavConsult" checked>
+                                    <span>إظهار "استشارة"</span>
+                                </label>
+                            </div>
+                            <button class="btn btn-primary" id="saveNavSettingsBtn"
+                                style="width: 100%; margin-top: 15px;">
+                                <i class="fas fa-save"></i> حفظ إعدادات القائمة
+                            </button>
+                        </div>
+
+                        <div class="setting-card">
+                            <h3><i class="fas fa-eye"></i> إعدادات أقسام الصفحة الرئيسية</h3>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showHeroSection" checked>
+                                    <span>إظهار القسم الترحيبي (Hero)</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showConsultSection" checked>
+                                    <span>إظهار قسم الاستشارة</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showArticlesSection" checked>
+                                    <span>إظهار قسم المقالات</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showToolsSection" checked>
+                                    <span>إظهار قسم الأدوات</span>
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" id="showAboutSection" checked>
+                                    <span>إظهار قسم من نحن</span>
+                                </label>
+                            </div>
+                            <button class="btn btn-primary" id="saveSectionsSettingsBtn"
+                                style="width: 100%; margin-top: 15px;">
+                                <i class="fas fa-save"></i> حفظ إعدادات الأقسام
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Article Modal -->
+    <div class="modal" id="articleModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-xl">
+            <div class="modal-header">
+                <h3 id="articleModalTitle">إضافة مقال جديد</h3>
+                <button class="modal-close" id="closeArticleModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="articleForm">
+                    <input type="hidden" id="articleId">
+
+                    <div class="form-group">
+                        <label>عنوان المقال (عربي)</label>
+                        <input type="text" id="articleTitle" class="form-control" required style="margin-bottom: 10px;">
+                        <label>Article Title (English)</label>
+                        <input type="text" id="articleTitle_en" class="form-control" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>التصنيف</label>
+                            <select id="articleCategorySelect" class="form-control" required>
+                                <option value="">اختر التصنيف...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>الأيقونة (Emoji)</label>
+                            <input type="text" id="articleIcon" class="form-control" placeholder="🐟" required>
+                        </div>
+                        <div class="form-group">
+                            <label>التاريخ</label>
+                            <input type="date" id="articleDate" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>صورة المقال (اختياري)</label>
+                        <div class="image-upload-container">
+                            <input type="file" id="articleImage" accept="image/*" class="form-control">
+                            <div class="image-preview" id="imagePreview" style="display: none;">
+                                <img id="previewImg" src="" alt="معاينة">
+                                <button type="button" class="btn-remove-image" id="removeImageBtn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <input type="hidden" id="articleImageData">
+                        </div>
+                        <small>يمكنك رفع صورة بصيغة JPG, PNG, GIF (حجم أقصى 2MB)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>الملخص (عربي)</label>
+                        <textarea id="articleSummary" class="form-control" rows="2" required
+                            style="margin-bottom: 10px;"></textarea>
+                        <label>Summary (English)</label>
+                        <textarea id="articleSummary_en" class="form-control" rows="2" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>المحتوى الكامل (عربي)</label>
+                        <small style="display: block; margin-bottom: 10px; color: #7f8c8d;">
+                            استخدم شريط الأدوات للتنسيق
+                        </small>
+                        <div id="editor-container"
+                            style="height: 300px; background: white; border-radius: 10px; margin-bottom: 20px;"></div>
+                        <input type="hidden" id="articleContent">
+
+                        <label>Content (English)</label>
+                        <div id="editor-container-en" style="height: 300px; background: white; border-radius: 10px;">
+                        </div>
+                        <input type="hidden" id="articleContent_en">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelArticleBtn">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> حفظ المقال
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Question Modal -->
+    <div class="modal" id="questionModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3>تعديل السؤال</h3>
+                <button class="modal-close" id="closeQuestionModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="questionForm">
+                    <input type="hidden" id="questionId">
+
+                    <div class="form-group">
+                        <label>نص السؤال (عربي)</label>
+                        <input type="text" id="questionText" class="form-control" required style="margin-bottom: 10px;">
+                        <label>Question Text (English)</label>
+                        <input type="text" id="questionText_en" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>الخيارات</label>
+                        <div id="optionsList" class="options-container">
+                            <!-- Options will be added dynamically -->
+                        </div>
+                        <button type="button" class="btn btn-sm btn-secondary" id="addOptionBtn"
+                            style="margin-top: 10px;">
+                            <i class="fas fa-plus"></i> إضافة خيار
+                        </button>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelQuestionBtn">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> حفظ التغييرات
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Member Modal -->
+    <div class="modal" id="teamMemberModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h3 id="teamMemberModalTitle">إضافة عضو جديد</h3>
+                <button class="modal-close" id="closeTeamMemberModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="teamMemberForm">
+                    <input type="hidden" id="teamMemberId">
+
+                    <div class="form-group">
+                        <label>الاسم (عربي)</label>
+                        <input type="text" id="memberName" class="form-control" required style="margin-bottom: 5px;">
+                        <label>Name (English)</label>
+                        <input type="text" id="memberName_en" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>المنصب (عربي)</label>
+                        <input type="text" id="memberPosition" class="form-control" required
+                            style="margin-bottom: 5px;">
+                        <label>Position (English)</label>
+                        <input type="text" id="memberPosition_en" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>نبذة تعريفية (عربي)</label>
+                        <textarea id="memberBio" class="form-control" rows="3" style="margin-bottom: 5px;"></textarea>
+                        <label>Bio (English)</label>
+                        <textarea id="memberBio_en" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>صورة العضو (اختياري)</label>
+                        <div class="image-upload-container">
+                            <input type="file" id="memberImage" accept="image/*" class="form-control">
+                            <div class="image-preview" id="memberImagePreview" style="display: none;">
+                                <img id="memberPreviewImg" src="" alt="معاينة">
+                                <button type="button" class="btn-remove-image" id="removeMemberImageBtn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <input type="hidden" id="memberImageData">
+                        </div>
+                        <small>يمكنك رفع صورة بصيغة JPG, PNG (حجم أقصى 2MB)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ترتيب العرض</label>
+                        <input type="number" id="memberOrder" class="form-control" value="0" min="0">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelTeamMemberBtn">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> حفظ
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon"></div>
+        <div class="toast-message"></div>
+    </div>
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="config.js?v=2"></script>
+    <script src="api.js?v=5.0"></script>
+
+    <script src="admin.js?v=3.0"></script>
+</body>
+
+</html>
